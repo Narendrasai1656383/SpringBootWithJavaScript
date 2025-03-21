@@ -23,13 +23,11 @@ public class Controller {
 	Repo repo;
 	@PostMapping
 	public ResponseEntity<User> addUser(@RequestBody User user){
-		System.out.println("POST");
 		repo.save(user);
 		return new ResponseEntity<User>(user,HttpStatus.ACCEPTED);
 	}
 	@GetMapping
 	public ResponseEntity<List<User>> getUsers(){
-		System.out.println("GET");
 		return new ResponseEntity<List<User>>(repo.findAll(),HttpStatus.CREATED);
 	}
 }
